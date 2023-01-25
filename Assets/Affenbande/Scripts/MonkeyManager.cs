@@ -19,6 +19,8 @@ public class MonkeyManager : MonoBehaviour
     // sprites: spielbrett, monkey, button
     // button only activated when playing
     // two players one after each other? how?
+    // reihenfolge wohin es gehen soll beim ziehen: position immer + 2 oder so
+    // don't take monkey twice -> if number already chosen, don't choose again
 
     public void TaskOnClick()
 	{
@@ -28,25 +30,25 @@ public class MonkeyManager : MonoBehaviour
         {
             GetAMonkey(new Vector3(-4, 2, 0));
 
-			Debug.Log("random: " + random + ", Color1");
+			// Debug.Log("random: " + random + ", Color1");
         }
         else if (monkeys[random].CompareTag("Color2"))
         {
             GetAMonkey(new Vector3(-4, -2, 0));
 
-            Debug.Log("random: " + random + ", Color2");
+            // Debug.Log("random: " + random + ", Color2");
         }
         else if (monkeys[random].CompareTag("Color3"))
         {
             GetAMonkey(new Vector3(4, 2, 0));
 
-            Debug.Log("random: " + random + ", Color3");
+            // Debug.Log("random: " + random + ", Color3");
         }
         else if (monkeys[random].CompareTag("Color4"))
         {
             GetAMonkey(new Vector3(-4, 2, 0));
 
-            Debug.Log("random: " + random + ", Color4");
+            // Debug.Log("random: " + random + ", Color4");
         }
 	}
 
@@ -54,7 +56,8 @@ public class MonkeyManager : MonoBehaviour
     {
         GameObject color = monkeys[random].gameObject;
         // color.SetActive(true);
-        LeanTween.scale(color, new Vector3(1, 1, 1), animationTime);
-        LeanTween.move(color, position, animationTime).setDelay(5f);
+        LeanTween.scale(color, new Vector3(0.2f, 0.2f, 0), animationTime);
+        LeanTween.move(color, position, animationTime).setDelay(4f);
+        LeanTween.scale(color, new Vector3(0.13f, 0.13f, 0), 2f).setDelay(4f);
     }
 }
