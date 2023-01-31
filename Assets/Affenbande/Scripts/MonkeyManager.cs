@@ -24,11 +24,8 @@ public class MonkeyManager : MonoBehaviour
 
     // button only activated when playing
     // two players one after each other? how?
-    // reihenfolge wohin es gehen soll beim ziehen: position immer + 2 oder so
     // beginning: sprechblasen aus dem wald in der mitte
     // drag & drop monkey -> snap to position
-    // every time one monkey from one color gets chosen -> int++
-    // switch int -> position always +2 idk
     // menu
 
     public void TaskOnClick()
@@ -62,7 +59,35 @@ public class MonkeyManager : MonoBehaviour
         GameObject color = monkeys[random];
         monkeys.RemoveAt(random);
         LeanTween.scale(color, new Vector3(0.25f, 0.25f, 0), animationTime);
-        LeanTween.move(color, position, animationTime).setDelay(4f);
+        LeanTween.move(color, CountPosition(count, position), animationTime).setDelay(4f);
         LeanTween.scale(color, new Vector3(0.13f, 0.13f, 0), animationTime).setDelay(4f);
+    }
+
+    Vector3 CountPosition(int count, Vector3 pos)
+    {
+        switch (count)
+        {
+            case 1:
+                break;
+            case 2:
+                pos.x += 1.79f;
+                break;
+            case 3:
+                pos.x += 3.57f;
+                break;
+            case 4:
+                pos.y -= 1.635f;
+                break;
+            case 5:
+                pos.y -= 1.635f;
+                pos.x += 1.79f;
+                break;
+            case 6:
+                pos.y -= 1.635f;
+                pos.x += 3.57f;
+                break;
+        }
+
+        return pos;
     }
 }
