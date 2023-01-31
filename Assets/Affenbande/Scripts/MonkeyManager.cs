@@ -4,32 +4,40 @@ using UnityEngine.UI;
 
 public class MonkeyManager : MonoBehaviour
 {
-	// [SerializeField] GameObject[] monkeys;
     [SerializeField] List<GameObject> monkeys = new List<GameObject>();
 
-    [SerializeField] Button btn;
-    [SerializeField] Text turnText;
+    public Button btn;
+    [SerializeField] GameObject[] turnText;
 
     int random;
-    [SerializeField] int color1, color2, color3, color4;
+    public int color1, color2, color3, color4;
     [SerializeField] float animationTime;
     [SerializeField] Vector3 finalPos1, finalPos2, finalPos3, finalPos4;
+    [SerializeField] float buttonTime;
+
+    public int a = 1;
 
     string tagColor;
 
 	void Start()
 	{
         btn.onClick.AddListener(TaskOnClick);
-	}
-
-    // button only activated when playing
-    // two players one after each other? how?
-    // beginning: sprechblasen aus dem wald in der mitte
-    // drag & drop monkey -> snap to position
-    // menu
+        LeanTween.scale(turnText[0], new Vector3(0.6f, 0.6f, 0), 1f);
+        LeanTween.scale(turnText[0], new Vector3(0, 0, 0), 1f).setDelay(3f);
+    }
 
     public void TaskOnClick()
 	{
+        a++;
+        Turn();
+
+        if (IsInvoking("ReEnableButton"))
+            return;
+
+        btn.interactable = false;
+
+        Invoke("ReEnableButton", buttonTime);
+
         random = Random.Range(0, monkeys.Count);
 
         tagColor = monkeys[random].tag;
@@ -54,13 +62,18 @@ public class MonkeyManager : MonoBehaviour
         }
     }
 
+     void ReEnableButton()
+    {
+        btn.interactable = true;
+    }
+
     void GetAMonkey(Vector3 position, int count)
     {
         GameObject color = monkeys[random];
         monkeys.RemoveAt(random);
         LeanTween.scale(color, new Vector3(0.25f, 0.25f, 0), animationTime);
-        LeanTween.move(color, CountPosition(count, position), animationTime).setDelay(4f);
-        LeanTween.scale(color, new Vector3(0.13f, 0.13f, 0), animationTime).setDelay(4f);
+        LeanTween.move(color, CountPosition(count, position), animationTime).setDelay(3f);
+        LeanTween.scale(color, new Vector3(0.13f, 0.13f, 0), animationTime).setDelay(3f);
     }
 
     Vector3 CountPosition(int count, Vector3 pos)
@@ -89,5 +102,35 @@ public class MonkeyManager : MonoBehaviour
         }
 
         return pos;
+    }
+
+    void Turn()
+    {
+        switch (a)
+        {
+            case 1:
+                LeanTween.scale(turnText[0], new Vector3(0.6f, 0.6f, 0), 1f).setDelay(6f);
+                LeanTween.scale(turnText[0], new Vector3(0, 0, 0), 0.5f).setDelay(8f);
+                break;
+            case 2:
+                LeanTween.scale(turnText[1], new Vector3(0.6f, 0.6f, 0), 1f).setDelay(6f);
+                LeanTween.scale(turnText[1], new Vector3(0, 0, 0), 0.5f).setDelay(8f);
+                break;
+            case 3:
+                LeanTween.scale(turnText[2], new Vector3(0.6f, 0.6f, 0), 1f).setDelay(6f);
+                LeanTween.scale(turnText[2], new Vector3(0, 0, 0), 0.5f).setDelay(8f);
+                break;
+            case 4:
+                LeanTween.scale(turnText[3], new Vector3(0.6f, 0.6f, 0), 1f).setDelay(6f);
+                LeanTween.scale(turnText[3], new Vector3(0, 0, 0), 0.5f).setDelay(8f);
+                a = 0;
+                break;
+        }
+
+        if ((color1 ^ color2 ^ color3 ^ color4) == 6)
+        {
+            a = 5;
+            btn.interactable = false;
+        }
     }
 }
