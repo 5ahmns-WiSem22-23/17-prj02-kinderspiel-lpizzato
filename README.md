@@ -16,7 +16,8 @@ Macht euch zu Beginn aus, wer welche Farbe spielen darf.
 Die Reihenfolge ist vorgegeben und wird dir vom Computer verraten. Wenn bei deiner Tafel steht "Du bist dran", darfst du auf den Wald in der Mitte klicken. Nun kommt ein Äffchen hervor!
 Ist es ein Äffchen in deiner Fabe, wird es sich auf dein Brett bewegen. Hat es eine andere Farbe, musst du es leider abgeben und es platziert sich auf der Tafel mit der passenden Farbe.
 Wer zuerst alle 6 Äffchen auf seiner Tafel voll hat, gewinnt!
-![Uploading Affenbande2.png…]()
+
+<img width="1595" alt="Affenbande2" src="https://user-images.githubusercontent.com/72389401/215997523-eded08be-692a-46a1-98e0-413e9a96c162.png">
 
 ## Assets
 - Monkeys: https://www.freepik.com/free-vector/playful-wild-monkeys_1175541.htm#query=monkey&position=1&from_view=search&track=sph (edited in Adobe Illustrator by me)
