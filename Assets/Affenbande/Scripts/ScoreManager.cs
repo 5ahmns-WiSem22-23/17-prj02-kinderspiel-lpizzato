@@ -5,7 +5,7 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField] MonkeyManager mm;
     [SerializeField] GameObject winText;
-    [SerializeField] Button button;
+    [SerializeField] GameObject button;
 
     private void Update()
     {
@@ -21,6 +21,7 @@ public class ScoreManager : MonoBehaviour
         {
             GameObject win = Instantiate(winText, pos, Quaternion.identity);
             win.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            button.active = false;
             LeanTween.scale(win, new Vector3(0.6f, 0.6f, 0), 2f).setEase(LeanTweenType.easeOutBounce).setDelay(5f);
             color = 0;
         }

@@ -15,7 +15,7 @@ public class MonkeyManager : MonoBehaviour
     [SerializeField] Vector3 finalPos1, finalPos2, finalPos3, finalPos4;
     [SerializeField] float buttonTime;
 
-    public int a = 1;
+    int a = 1;
 
     string tagColor;
 
