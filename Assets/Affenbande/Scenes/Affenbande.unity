@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 754923832}
   - component: {fileID: 754923831}
   m_Layer: 5
-  m_Name: Du bist dran! 1
+  m_Name: Turn1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2037,7 +2037,7 @@ GameObject:
   - component: {fileID: 1025260687}
   - component: {fileID: 1025260686}
   m_Layer: 5
-  m_Name: Du bist dran! 2
+  m_Name: Turn2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2241,7 +2241,7 @@ GameObject:
   - component: {fileID: 1151118888}
   - component: {fileID: 1151118890}
   m_Layer: 5
-  m_Name: Du bist dran! 4
+  m_Name: Turn4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2548,7 +2548,7 @@ GameObject:
   - component: {fileID: 1323230993}
   - component: {fileID: 1323230992}
   m_Layer: 5
-  m_Name: Du bist dran! 3
+  m_Name: Turn3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2908,12 +2908,11 @@ MonoBehaviour:
   color3: 0
   color4: 0
   animationTime: 2
+  buttonTime: 7
   finalPos1: {x: -7.265, y: 3.525, z: 0}
   finalPos2: {x: -7.265, y: -1.875, z: 0}
   finalPos3: {x: 3.735, y: 3.525, z: 0}
   finalPos4: {x: 3.735, y: -1.875, z: 0}
-  buttonTime: 7
-  a: 1
 --- !u!4 &1666834013
 Transform:
   m_ObjectHideFlags: 0

@@ -7,23 +7,25 @@ public class MonkeyManager : MonoBehaviour
     [SerializeField] List<GameObject> monkeys = new List<GameObject>();
 
     public Button btn;
-    [SerializeField] GameObject[] turnText;
+
+    public GameObject[] turnText;
 
     int random;
+    int a = 1;
     public int color1, color2, color3, color4;
+
     [SerializeField] float animationTime;
-    [SerializeField] Vector3 finalPos1, finalPos2, finalPos3, finalPos4;
     [SerializeField] float buttonTime;
 
-    int a = 1;
+    [SerializeField] Vector3 finalPos1, finalPos2, finalPos3, finalPos4;
 
     string tagColor;
 
 	void Start()
 	{
         btn.onClick.AddListener(TaskOnClick);
-        LeanTween.scale(turnText[0], new Vector3(0.6f, 0.6f, 0), 1f);
-        LeanTween.scale(turnText[0], new Vector3(0, 0, 0), 1f).setDelay(3f);
+        LeanTween.scale(turnText[0], new Vector3(0.6f, 0.6f, 0), 1f).setDelay(1f);
+        LeanTween.scale(turnText[0], new Vector3(0, 0, 0), 0.5f).setDelay(3f);
     }
 
     public void TaskOnClick()
